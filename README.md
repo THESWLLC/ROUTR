@@ -90,6 +90,46 @@ Built using Python, Selenium, and CustomTkinter, the platform simulates real-wor
 4. Trigger automated actions (reply, clear, route workflows)
 5. Emit status logs/counters for operator visibility and auditability
 
+## Process Flowchart
+
+```mermaid
+flowchart TD
+    A[Operator Opens Dashboard] --> B[Initialize Session and Config]
+    B --> C[Authenticate to Operational Environment]
+    C --> D[Start Background Monitoring Loops]
+
+    D --> E[Read Incoming Message/Task Queue]
+    E --> F[Parse and Normalize Message Data]
+    F --> G{Actionable Item?}
+
+    G -- No --> H[Update Status and Continue Monitoring]
+    H --> E
+
+    G -- Yes --> I[Extract Route and Context]
+    I --> J[Apply Rule-Based Decision Logic]
+    J --> K{Action Type}
+
+    K --> L[Auto-Reply Flow]
+    K --> M[Auto-Clear Flow]
+    K --> N[Route/Dispatch Update Flow]
+    K --> O[Exception/API Validation Flow]
+
+    L --> P[Execute Browser/API Action]
+    M --> P
+    N --> P
+    O --> P
+
+    P --> Q{Action Success?}
+    Q -- Yes --> R[Write Logs, Metrics, and UI Counters]
+    Q -- No --> S[Retry with Fallback Handling]
+    S --> T{Retry Limit Reached?}
+    T -- No --> P
+    T -- Yes --> U[Record Error and Continue Safely]
+
+    R --> E
+    U --> E
+```
+
 ## Impact
 
 - Replaced repetitive manual dispatch actions with automated workflows, reducing operational friction
