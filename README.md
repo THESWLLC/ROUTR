@@ -94,73 +94,52 @@ Built using Python, Selenium, and CustomTkinter, the platform simulates real-wor
 
 ```mermaid
 flowchart TD
-    A[Launch Desktop Dashboard] --> B[Load Config and User Inputs]
-    B --> C[SSO Authentication and Session Bootstrap]
-    C --> D[Initialize Monitor Threads and UI Status Counters]
+    A[Launch Dashboard] --> B[Load Config and Inputs]
+    B --> C[Authenticate Session]
+    C --> D[Initialize Monitor Threads]
+    D --> E[Select Location and Queue Context]
+    E --> F[Poll Message/System Queues]
+    F --> G[Parse and Normalize Content]
+    G --> H[Extract Route and Context]
+    H --> I{Workflow Type}
+    I --> J[Execute Capability Workflow]
+    J --> K[Log Results and Update UI Counters]
+    K --> F
+```
 
-    D --> E[Select Dispatch Location and Queue Context]
-    E --> F[Poll Message Queue and System Queue]
-    F --> G[Parse and Normalize Message Content]
-    G --> H[Extract Route, ZIP, Location, and Type]
-    H --> I{Classify Workflow Type}
+### Capability Branches
 
-    I --> J[Auto-Read / Reply Workflow]
-    I --> K[Auto-Clear Workflow]
-    I --> L[Walkup Request Workflow]
-    I --> M[Pickup Reminder Workflow]
-    I --> N[No-Pickup / Exception Workflow]
-    I --> O[Package Exception Count Workflow]
+```mermaid
+flowchart LR
+    A[Workflow Type Classifier] --> B[Auto-Read / Reply]
+    A --> C[Auto-Clear]
+    A --> D[Walkup Request Handling]
+    A --> E[Pickup Reminder Handling]
+    A --> F[No-Pickup / Exception Handling]
+    A --> G[Package Exception Count Reporting]
 
-    subgraph Message_Automation
-      J --> J1[Open Target Message]
-      J1 --> J2[Generate Rule-Based Response]
-      J2 --> J3[Submit Reply and Archive]
+    B --> B1[Open Message -> Reply -> Archive]
+    C --> C1[Identify Candidate -> Clear -> Move to History]
+    D --> D1[Validate Inputs -> Create Request / Mismatch Handling]
+    E --> E1[Detect Reminder -> Reply -> Archive]
+    F --> F1[Classify Exception -> Apply Rule Action]
+    G --> G1[Acquire Token -> Call API -> Build Summary]
+```
 
-      K --> K1[Identify Clear Candidates]
-      K1 --> K2[Apply Clear Action Rules]
-      K2 --> K3[Move to History]
-    end
+### Resilience and Recovery Flow
 
-    subgraph Pickup_and_Route_Handling
-      L --> L1[Open Pickup Request Form]
-      L1 --> L2[Validate Services and Route Inputs]
-      L2 --> L3{Validation Match?}
-      L3 -- Yes --> L4[Create Request and Confirm]
-      L3 -- No --> L5[Send Mismatch Handling Response]
-
-      M --> M1[Detect Reminder Pattern]
-      M1 --> M2[Open Reply Pane]
-      M2 --> M3[Send Standardized Reminder Reply]
-      M3 --> M4[Archive Processed Reminder]
-    end
-
-    subgraph Reporting_and_API
-      N --> N1[Classify Exception/No-Pickup Conditions]
-      N1 --> N2[Apply Exception Handling Rules]
-
-      O --> O1[Acquire Session Token]
-      O1 --> O2[Call Exception Count API]
-      O2 --> O3[Build Summary Metrics]
-      O3 --> O4[Display Results in UI]
-    end
-
-    J3 --> P[Write Logs and Update Counters]
-    K3 --> P
-    L4 --> P
-    L5 --> P
-    M4 --> P
-    N2 --> P
-    O4 --> P
-
-    P --> Q{Any Action/Navigation Failure?}
-    Q -- No --> R[Continue Monitoring Loop]
-    Q -- Yes --> S[Retry with Fallback Strategies]
-    S --> T{Retry Budget Exhausted?}
-    T -- No --> F
-    T -- Yes --> U[Record Error, Recover State, Continue Safely]
-
-    R --> F
-    U --> F
+```mermaid
+flowchart TD
+    A[Execute Action] --> B{Success?}
+    B -- Yes --> C[Write Logs and Update Status]
+    B -- No --> D[Run Fallback Strategy]
+    D --> E{Recovered?}
+    E -- Yes --> C
+    E -- No --> F{Retry Budget Left?}
+    F -- Yes --> A
+    F -- No --> G[Record Error and Continue Safely]
+    C --> H[Return to Monitoring Loop]
+    G --> H
 ```
 
 ## Impact
