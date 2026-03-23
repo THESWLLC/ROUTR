@@ -1,17 +1,31 @@
 # ROUTR_SHOWCASE
 
-Portfolio-ready, public-safe desktop automation platform for high-volume dispatch workflows.
+Public-safe desktop automation platform for high-volume dispatch workflows.
+
+## In 10 Seconds
+
+**What is this?**  
+`ROUTR_SHOWCASE` is a Python desktop application that automates repetitive dispatch operations using a CustomTkinter UI + Selenium workflow engine.
+
+**What problem does it solve?**  
+It reduces manual effort in route/message handling workflows where teams otherwise click through repetitive UI tasks, copy data, and process exceptions by hand.
+
+**What tech is used?**  
+Python, CustomTkinter/Tkinter, Selenium WebDriver, requests, pandas, threaded background workers, and structured logging/retry patterns.
+
+**What’s the impact?**  
+It standardizes operational execution, improves consistency, and helps teams process high-volume dispatch activity faster with fewer manual errors.
 
 ## Why This Project Matters
 
-`ROUTR_SHOWCASE` demonstrates how I design and ship production-style automation tools that combine:
+`ROUTR_SHOWCASE` demonstrates production-style automation engineering that combines:
 
 - reliable browser automation for operational workflows
 - a desktop UI that non-technical users can run daily
 - defensive engineering (retry logic, stale element recovery, timeout handling)
 - data normalization and workflow orchestration across multiple tasks
 
-This is the sanitized showcase version of a real-world operations tool, rebuilt for public sharing.
+This is a sanitized public version of a real-world operations tool.
 
 ## Core Capabilities
 
@@ -83,5 +97,5 @@ python ROUTR_SHOWCASE.py
 
 ## Notes
 
-- This repository is intended for portfolio review and technical discussion.
+- This repository is intended for technical review and discussion.
 - Enterprise integrations are anonymized/stubbed where needed for safe public sharing.
