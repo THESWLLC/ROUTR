@@ -34,6 +34,11 @@ Built using Python, Selenium, and CustomTkinter, the platform simulates real-wor
 - Browser automation using Selenium to replicate and execute repetitive operational tasks
 - Data normalization and validation to ensure consistent processing of incoming pickup data
 - Defensive fallbacks for dynamic web pages and transient UI failures
+- Multi-location monitor orchestration (parallel Auto-Read, Auto-Clear, and SoF+ workers)
+- Audit follow-up workflow for unresolved/open-stop routes
+- Advanced auto-sort reconciliation workflow across operational and reporting systems
+- Exception-count reporting workflow with API summary output
+- Utility tooling (code generation workflows and extension-assisted integrations)
 
 ## Tech Stack
 
@@ -85,10 +90,11 @@ Built using Python, Selenium, and CustomTkinter, the platform simulates real-wor
 ## Workflow Overview
 
 1. Authenticate into an operational session (sanitized in public version)
-2. Monitor high-volume message/task queues
-3. Extract route/context data and classify actionable items
-4. Trigger automated actions (reply, clear, route workflows)
-5. Emit status logs/counters for operator visibility and auditability
+2. Start selected monitor families (Auto-Read, Auto-Clear, SoF+, Reporting, Auto-Sort)
+3. Monitor high-volume message/system queues and route-state signals
+4. Extract route/context data and classify actionable items
+5. Trigger automated actions (reply, clear, create, validate, reconcile)
+6. Emit status logs/counters and keep watchdog-based self-healing active
 
 ## Process Flowchart
 
@@ -104,7 +110,8 @@ flowchart TD
     H --> I{Workflow Type}
     I --> J[Execute Capability Workflow]
     J --> K[Log Results and Update UI Counters]
-    K --> F
+    K --> L[Watchdog Health Supervision]
+    L --> F
 ```
 
 ### Capability Branches
@@ -117,6 +124,10 @@ flowchart LR
     A --> E[Pickup Reminder Handling]
     A --> F[No-Pickup / Exception Handling]
     A --> G[Package Exception Count Reporting]
+    A --> H[SoF+ Route-State Monitoring]
+    A --> I[Auto-Sort Reconciliation]
+    A --> J[Audit Follow-Up Queue]
+    A --> K[Utility Tooling and Extension Flow]
 
     B --> B1[Open Message -> Reply -> Archive]
     C --> C1[Identify Candidate -> Clear -> Move to History]
@@ -124,6 +135,10 @@ flowchart LR
     E --> E1[Detect Reminder -> Reply -> Archive]
     F --> F1[Classify Exception -> Apply Rule Action]
     G --> G1[Acquire Token -> Call API -> Build Summary]
+    H --> H1[Track Route Health -> Counters -> Operator Popups]
+    I --> I1[Cross-System Data Compare -> Mismatch Actions]
+    J --> J1[Recheck Open Stops -> Resolve or Escalate]
+    K --> K1[Support Utilities -> Local Integration Endpoints]
 ```
 
 ### Resilience and Recovery Flow
@@ -137,9 +152,12 @@ flowchart TD
     E -- Yes --> C
     E -- No --> F{Retry Budget Left?}
     F -- Yes --> A
-    F -- No --> G[Record Error and Continue Safely]
-    C --> H[Return to Monitoring Loop]
-    G --> H
+    F -- No --> G{Can Defer to Audit Queue?}
+    G -- Yes --> H[Queue Deferred Recovery Task]
+    G -- No --> I[Record Error and Continue Safely]
+    C --> J[Return to Monitoring Loop]
+    H --> J
+    I --> J
 ```
 
 ## Impact
