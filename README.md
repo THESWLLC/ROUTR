@@ -16,51 +16,83 @@ Python, CustomTkinter/Tkinter, Selenium WebDriver, requests, pandas, threaded ba
 **What’s the impact?**  
 It standardizes operational execution, improves consistency, and helps teams process high-volume dispatch activity faster with fewer manual errors.
 
-## Why This Project Matters
+## Key Features
 
-`ROUTR_SHOWCASE` demonstrates production-style automation engineering that combines:
+- Automated message scanning and action routing
+- Route extraction, validation, and workflow automation
+- Auto-reply and auto-clear operational flows
+- Real-time desktop dashboard with logs, counters, and controls
+- API + browser automation hybrid processing
+- Defensive fallbacks for dynamic web pages and transient UI failures
 
-- reliable browser automation for operational workflows
-- a desktop UI that non-technical users can run daily
-- defensive engineering (retry logic, stale element recovery, timeout handling)
-- data normalization and workflow orchestration across multiple tasks
+## Tech Stack
 
-This is a sanitized public version of a real-world operations tool.
+- Python
+- Selenium WebDriver
+- CustomTkinter / Tkinter
+- requests
+- pandas
+- threading + structured logging
 
-## Core Capabilities
+## Impact
 
-- **Automated Workflow Monitoring:** Continuously monitors dispatch-style message queues and reacts to actionable items.
-- **Smart Route Handling:** Extracts route data from messages, validates content, and triggers automated follow-up actions.
-- **Auto-Reply / Auto-Clear Flows:** Implements response and cleanup workflows with safeguards to reduce manual repetitive work.
-- **Operational Dashboard UI:** Multi-panel CustomTkinter interface with status indicators, counters, logs, and controls.
-- **API + UI Hybrid Processing:** Uses API calls for package/exception data and Selenium-driven UI automation where required.
-- **Resilience Under Change:** Includes robust fallbacks for dynamic pages (stale references, click interception, delayed rendering).
+- Reduces repetitive manual dispatch processing
+- Improves operational consistency and response speed
+- Decreases error-prone copy/paste and UI navigation work
+- Makes high-volume workflow execution more scalable for operations teams
 
-## Technical Highlights
+## Proof of Work
 
-- **Language:** Python
-- **UI:** CustomTkinter / Tkinter
-- **Automation:** Selenium WebDriver
-- **Data Handling:** pandas, regex parsing, request/response processing
-- **Concurrency:** Threaded workers + UI-safe callbacks
-- **Reliability Patterns:** retries, timeout guards, structured logging, exception recovery loops
+### Screenshots
 
-## Architecture Snapshot
+Add project visuals here:
 
-- `ROUTR_SHOWCASE.py` contains:
-  - authentication/session navigation helpers
-  - message scanning and pattern-based action routing
-  - route and dispatch workflow handlers
-  - operational dashboard rendering and user controls
-  - background worker loops and status/reporting hooks
+- Dispatch dashboard UI
+- Automation run in progress
+- Route/action output view
 
-## Resume-Relevant Engineering Skills Demonstrated
+Create a `screenshots/` folder and embed images:
 
-- Building end-user automation products, not just scripts
-- Translating operational pain points into deterministic software workflows
-- Balancing speed and safety in long-running browser automation
-- Designing UI-first tooling for team adoption
-- Refactoring private/internal systems into compliant public showcases
+```markdown
+![Dispatch Dashboard](screenshots/dashboard.png)
+![Automation Run](screenshots/automation-run.png)
+![Route Output](screenshots/route-output.png)
+```
+
+### Demo Video
+
+Add a short walkthrough (2-5 minutes):
+
+- Start app
+- Show monitor/actions running
+- Show logs/status and outcomes
+
+Link format:
+
+```markdown
+[Watch Demo](https://your-demo-link)
+```
+
+### Case Study (Problem -> Solution -> Result)
+
+**Problem**  
+Dispatch workflows required repetitive manual processing, causing delays and inconsistency.
+
+**Solution**  
+Built a Python automation platform with a desktop control UI and Selenium-driven workflow handling for route/message operations.
+
+**Result**  
+Faster execution, better operational consistency, and less manual overhead for recurring dispatch tasks.
+
+## Project Structure
+
+```text
+ROUTR_SHOWCASE/
+├── ROUTR_SHOWCASE.py
+├── requirements.txt
+├── screenshots/
+└── README.md
+```
 
 ## Public Safety / Sanitization
 
@@ -97,5 +129,5 @@ python ROUTR_SHOWCASE.py
 
 ## Notes
 
-- This repository is intended for technical review and discussion.
+- This repository is intended for technical review.
 - Enterprise integrations are anonymized/stubbed where needed for safe public sharing.
