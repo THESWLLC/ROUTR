@@ -18,13 +18,21 @@ Python, CustomTkinter/Tkinter, Selenium WebDriver, requests, pandas, threaded ba
 **What’s the impact?**  
 It standardizes operational execution, improves consistency, and helps teams process high-volume dispatch activity faster with fewer manual errors.
 
-## What This Demonstrates
+## Overview
 
-- Automated message scanning and action routing
-- Route extraction, validation, and workflow automation
-- Auto-reply and auto-clear operational flows
-- Real-time desktop dashboard with logs, counters, and controls
-- API + browser automation hybrid processing
+This project demonstrates a custom-built automation platform designed to streamline high-volume dispatch operations.
+
+The system replaces repetitive, manual workflows with structured automation logic, enabling faster processing, improved accuracy, and more consistent routing decisions.
+
+Built using Python, Selenium, and CustomTkinter, the platform simulates real-world logistics automation while remaining fully sanitized for public demonstration.
+
+## Key Capabilities
+
+- Automated pickup classification and sorting based on predefined logic rules
+- Dynamic route prioritization to optimize stop sequencing and dispatch efficiency
+- Real-time GUI dashboard for monitoring and controlling dispatch workflows
+- Browser automation using Selenium to replicate and execute repetitive operational tasks
+- Data normalization and validation to ensure consistent processing of incoming pickup data
 - Defensive fallbacks for dynamic web pages and transient UI failures
 
 ## Tech Stack
@@ -43,6 +51,37 @@ It standardizes operational execution, improves consistency, and helps teams pro
 - **Data/Integration Layer:** API calls, parsing, validation, and action routing logic
 - **Reliability Layer:** Retry loops, timeout guards, stale element recovery, and structured logging
 
+```text
+          ┌──────────────────────┐
+          │     User Input       │
+          │  (Dispatcher UI)     │
+          └─────────┬────────────┘
+                    │
+                    ▼
+          ┌──────────────────────┐
+          │   Tkinter GUI Layer  │
+          │  (Control Panel)     │
+          └─────────┬────────────┘
+                    │
+                    ▼
+          ┌──────────────────────┐
+          │  Automation Engine   │
+          │ (Selenium Workflows) │
+          └─────────┬────────────┘
+                    │
+                    ▼
+          ┌──────────────────────┐
+          │   Data Processing    │
+          │  (Parsing / Logic)   │
+          └─────────┬────────────┘
+                    │
+                    ▼
+          ┌──────────────────────┐
+          │   Output / Actions   │
+          │ (Routing Decisions)  │
+          └──────────────────────┘
+```
+
 ## Workflow Overview
 
 1. Authenticate into an operational session (sanitized in public version)
@@ -53,10 +92,11 @@ It standardizes operational execution, improves consistency, and helps teams pro
 
 ## Impact
 
-- Reduced repetitive manual touchpoints in recurring dispatch workflows (estimated 30-40% improvement)
-- Improved operational consistency through standardized rule-based actions and response flows
-- Decreased error-prone copy/paste and repeated UI navigation in high-volume message handling
-- Increased throughput for repetitive route/message tasks during peak operational periods
+- Replaced repetitive manual dispatch actions with automated workflows, reducing operational friction
+- Improved routing consistency by enforcing structured decision logic across pickup handling
+- Eliminated multi-step UI navigation and manual data entry through Selenium-based automation
+- Increased throughput by enabling faster pickup processing and prioritization
+- Reduced human error in dispatch coordination by standardizing execution paths
 
 ## Proof of Work
 
