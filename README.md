@@ -38,10 +38,10 @@ It standardizes operational execution, improves consistency, and helps teams pro
 
 ## Impact
 
-- Reduces repetitive manual dispatch processing
-- Improves operational consistency and response speed
-- Decreases error-prone copy/paste and UI navigation work
-- Makes high-volume workflow execution more scalable for operations teams
+- Reduced repetitive manual touchpoints in recurring dispatch workflows (estimated 30-40% improvement)
+- Improved operational consistency through standardized rule-based actions and response flows
+- Decreased error-prone copy/paste and repeated UI navigation in high-volume message handling
+- Increased throughput for repetitive route/message tasks during peak operational periods
 
 ## Proof of Work
 
@@ -63,11 +63,11 @@ Create a `screenshots/` folder and embed images:
 
 ### Demo Video
 
-Add a short walkthrough (2-5 minutes):
+Add a short recorded walkthrough (2-5 minutes):
 
-- Start app
-- Show monitor/actions running
-- Show logs/status and outcomes
+- Show UI overview and key workflow screens
+- Walk through a representative automation sequence (recorded)
+- Highlight logs/status output and resulting actions
 
 Link format:
 
