@@ -2,6 +2,8 @@
 
 Public-safe desktop automation platform for high-volume dispatch workflows.
 
+> This repository is view-only and intended for technical review. It is not distributed as a runnable production build.
+
 ## In 10 Seconds
 
 **What is this?**  
@@ -103,29 +105,6 @@ To make this repository safe for public visibility:
 - Replaced internal production URLs with placeholders
 - Replaced company/provider branding terms with neutral placeholders
 - Excluded credentials, local logs, generated artifacts, and private datasets via `.gitignore`
-
-## Quick Start
-
-1. Create and activate a virtual environment
-2. Install dependencies:
-
-```bash
-pip install -r requirements.txt
-```
-
-3. Configure environment variables:
-
-```bash
-set GOOGLE_API_KEY=your_key_here
-set ROUTR_API_BASE=https://api.example.com
-set ROUTR_UI_BASE=https://app.example.com
-```
-
-4. Run:
-
-```bash
-python ROUTR_SHOWCASE.py
-```
 
 ## Notes
 
