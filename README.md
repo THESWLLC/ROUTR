@@ -2,7 +2,7 @@
 
 Public-safe desktop automation platform for high-volume dispatch workflows.
 
-> This repository is view-only and intended for technical review. It is not distributed as a runnable production build.
+> This repository is a sanitized technical showcase for code review and portfolio evaluation. It is intentionally non-runnable and excludes private integrations, credentials, internal endpoints, and production datasets.
 
 ## In 10 Seconds
 
@@ -18,7 +18,7 @@ Python, CustomTkinter/Tkinter, Selenium WebDriver, requests, pandas, threaded ba
 **What’s the impact?**  
 It standardizes operational execution, improves consistency, and helps teams process high-volume dispatch activity faster with fewer manual errors.
 
-## Key Features
+## What This Demonstrates
 
 - Automated message scanning and action routing
 - Route extraction, validation, and workflow automation
@@ -36,6 +36,21 @@ It standardizes operational execution, improves consistency, and helps teams pro
 - pandas
 - threading + structured logging
 
+## Architecture Overview
+
+- **UI Layer:** Desktop control panel and monitoring views using CustomTkinter/Tkinter
+- **Automation Layer:** Selenium-based browser workflow engine for operational tasks
+- **Data/Integration Layer:** API calls, parsing, validation, and action routing logic
+- **Reliability Layer:** Retry loops, timeout guards, stale element recovery, and structured logging
+
+## Workflow Overview
+
+1. Authenticate into an operational session (sanitized in public version)
+2. Monitor high-volume message/task queues
+3. Extract route/context data and classify actionable items
+4. Trigger automated actions (reply, clear, route workflows)
+5. Emit status logs/counters for operator visibility and auditability
+
 ## Impact
 
 - Reduced repetitive manual touchpoints in recurring dispatch workflows (estimated 30-40% improvement)
@@ -45,35 +60,14 @@ It standardizes operational execution, improves consistency, and helps teams pro
 
 ## Proof of Work
 
-### Screenshots
+### Code Evidence
 
-Add project visuals here:
+- `ROUTR_SHOWCASE.py` contains end-to-end UI, workflow, and automation orchestration.
+- The structure demonstrates production-style defensive coding for real-world dynamic web flows.
 
-- Dispatch dashboard UI
-- Automation run in progress
-- Route/action output view
+### Visual Evidence
 
-Create a `screenshots/` folder and embed images:
-
-```markdown
-![Dispatch Dashboard](screenshots/dashboard.png)
-![Automation Run](screenshots/automation-run.png)
-![Route Output](screenshots/route-output.png)
-```
-
-### Demo Video
-
-Add a short recorded walkthrough (2-5 minutes):
-
-- Show UI overview and key workflow screens
-- Walk through a representative automation sequence (recorded)
-- Highlight logs/status output and resulting actions
-
-Link format:
-
-```markdown
-[Watch Demo](https://your-demo-link)
-```
+Screenshots and walkthrough clips are maintained separately to keep this repo focused on sanitized technical artifacts.
 
 ### Case Study (Problem -> Solution -> Result)
 
